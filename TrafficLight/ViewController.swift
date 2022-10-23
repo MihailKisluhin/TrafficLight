@@ -9,11 +9,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mainButton: UIButton!
+    @IBOutlet var redView: UIView!
+    @IBOutlet var yellowView: UIView!
+    @IBOutlet var greenView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        mainButton.layer.cornerRadius = 15
+        redView.layer.cornerRadius = 75
+        redView.layer.opacity = 1
+        
+        yellowView.layer.cornerRadius = 75
+        yellowView.layer.opacity = 0.3
+        
+        greenView.layer.cornerRadius = 75
+        greenView.layer.opacity = 0.3
     }
 
-
+    @IBAction func mainButtonTapped() {
+        if redView.layer.opacity == 1 {
+            redView.layer.opacity = 0.3
+            yellowView.layer.opacity = 1
+        }
+            
+        mainButton.setTitle("RESET", for: .normal)
+    }
+    
 }
 
