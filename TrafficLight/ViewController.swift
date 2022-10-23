@@ -18,8 +18,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         mainButton.layer.cornerRadius = 15
+        
         redView.layer.cornerRadius = 75
-        redView.layer.opacity = 1
+        redView.layer.opacity = 0.3
         
         yellowView.layer.cornerRadius = 75
         yellowView.layer.opacity = 0.3
@@ -29,12 +30,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func mainButtonTapped() {
+        
         if redView.layer.opacity == 1 {
             redView.layer.opacity = 0.3
             yellowView.layer.opacity = 1
-        }
-            
-        mainButton.setTitle("RESET", for: .normal)
+        } else if yellowView.layer.opacity == 1 {
+            yellowView.layer.opacity = 0.3
+            greenView.layer.opacity = 1
+        } else if greenView.layer.opacity == 1 {
+            greenView.layer.opacity = 0.3
+            redView.layer.opacity = 1
+        } else {
+            redView.layer.opacity = 1
+            mainButton.setTitle("RESET", for: .normal)
+            }
     }
     
 }
